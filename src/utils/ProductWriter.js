@@ -14,7 +14,7 @@ function createProductMarkdown(payload) {
   } = payload
 
   const slug = title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
-  const dirPath = path.join(__dirname, "../src/content/products")
+  const dirPath = path.join(__dirname, "../content/products")
   const filePath = path.join(dirPath, `${slug}.md`)
 
   if (!fs.existsSync(dirPath)) {
