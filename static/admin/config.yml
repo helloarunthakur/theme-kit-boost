@@ -3,8 +3,8 @@ backend:
   name: git-gateway
   branch: main
 
-media_folder: "static/uploads"
-public_folder: "/uploads"
+media_folder: "static/images/uploads"
+public_folder: "/images/uploads"
 
 collections:
   - name: "products"
@@ -13,28 +13,24 @@ collections:
     create: true
     slug: "{{slug}}"
     extension: "md"
-    format: "frontmatter"
+    format: "yaml-frontmatter"
     fields:
-      - label: "Title"
-        name: "title"
-        widget: "string"
-      - label: "Description"
-        name: "description"
-        widget: "text"
-      - label: "Poster"
-        name: "poster"
-        widget: "image"
-        required: false
-        hint: "Main product poster image"
-      - label: "Image Gallery"
-        name: "images"
-        widget: "list"
-        required: false
-        field:
-          label: "Image"
-          name: "image"
-          widget: "image"
-      - label: "Body"
-        name: "body"
-        widget: "markdown"
-        required: false
+      - { label: "Title", name: "title", widget: "string", required: true }
+      - { label: "Description", name: "description", widget: "text", required: true }
+      - { label: "Image URL", name: "imageURL", widget: "string", required: true }
+      - {
+          label: "Images",
+          name: "images",
+          widget: "list",
+          field: { label: "Image", name: "image", widget: "string" },
+          required: false
+        }
+      - { label: "Specifications", name: "specifications", widget: "text", required: true }
+      - {
+          label: "Category",
+          name: "category",
+          widget: "select",
+          options: ["Category 1", "Category 2", "Category 3"],
+          required: true
+        }
+      - { label: "Draft", name: "draft", widget: "boolean", default: false, required: false }
