@@ -1,0 +1,20 @@
+.team {
+  padding-bottom: 55px;
+}
+.sec-padd {
+  padding: 80px 0;
+}
+.flex-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.team .img-box {
+  overflow: hidden;
+  width: 150px;
+  margin: 0 auto;
+}
+.img-box img {
+  height: 180px;
+  object-fit: contain;
+}

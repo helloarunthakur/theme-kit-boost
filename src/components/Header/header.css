@@ -1,0 +1,200 @@
+.mobile-top,
+.mobile-main {
+  display: none !important;
+}
+.top-bar {
+  background-color: #ffffff;
+  padding: 14px 0px;
+  font-size: 14px;
+  font-weight: 500;
+  width: 95%;
+}
+.top-bar a,
+.mobile-main a {
+  color: var(--primary-color) !important;
+}
+.mobile-top a {
+  color: #fff !important;
+}
+.nav-bar {
+  background-color: var(--primary-color) !important;
+  padding: 7px 24px !important;
+}
+
+.logo {
+  height: 74px !important;
+}
+
+header .nav-link {
+  color: #fff;
+  font-weight: 600;
+  font-size: 14px;
+  padding: 0px 12px !important;
+  /*background-color: #fff;*/
+  background-origin: padding-box;
+  border-radius: 6px;
+}
+
+header .nav-link:hover,
+header .nav-link:focus {
+  color: #fff !important;
+  opacity: 0.7;
+}
+.no-caret::after {
+  display: none !important;
+}
+.dropdown-menu {
+  font-size: 14px !important;
+  border-radius: 6px !important;
+  padding: 8px 0 !important;
+}
+.dropdown-menu .dropdown-item:hover {
+  background-color: var(--primary-color) !important;
+  color: #fff !important;
+}
+.dropdown-item {
+  font-size: 14px;
+}
+/* Search CSS */
+
+.search__top {
+  margin-bottom: 20px;
+}
+
+.search__popup {
+  padding: 40px 100px;
+}
+
+.search-input {
+  border-bottom: 1px solid var(--primary-color) !important;
+  color: var(--primary-color) !important;
+  height: 3.5rem !important;
+}
+/*.search__input button{*/
+/*  color: var(--primary-color) ;*/
+/*}*/
+
+/*.search__close-btn{*/
+/*  color: #56CGF2 ;*/
+/*}*/
+
+/* Search CSS Ends */
+
+/* Search Suggestion CSS Start*/
+
+.search__suggestions {
+  margin-top: 30px;
+}
+
+.popular-title {
+  font-weight: 600;
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.suggestion-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.suggestion-list li a {
+  display: inline-block;
+  background-color: #ffffff;
+  color: #333;
+  border: 1px solid #f1f1f1;
+  border-radius: 5px;
+  padding: 2px;
+  font-family: Lato;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.suggestion-list li a:hover {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
+
+/* Search Suggestion CSS End */
+
+.view-alll {
+  border-top: 1px solid #ccc;
+}
+header .nav-item .nav-link {
+  line-height: 24px !important;
+}
+
+.nav-item.active-nav > .nav-link {
+  color: var(--primary-color) !important;
+  background: #fff;
+}
+
+/* Mobile View Starts at max-width 780px */
+@media (max-width: 780px) {
+  .desktop-header {
+    display: none !important;
+  }
+
+  .mobile-top {
+    display: flex !important;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 16px !important;
+    background-color: var(--primary-color);
+    font-size: 14px !important;
+    font-weight: 500;
+  }
+
+  .mobile-main {
+    display: flex !important;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff !important;
+    padding: 10px 16px !important;
+  }
+
+  .mobile-main img {
+    height: 50px !important;
+  }
+
+  .search__popup {
+    height: 100%;
+    padding: 24px;
+  }
+
+  .suggestion-list {
+    height: max-content;
+    overflow-y: auto;
+    padding-right: 5px;
+    max-height: 275px; /* optional: for scrollbar spacing */
+  }
+
+  .suggestion-list li {
+    margin-bottom: 8px;
+  }
+
+  .suggestion-list::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .suggestion-list::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 4px;
+  }
+
+  .suggestion-list::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+  }
+  .logo {
+    height: 64px !important;
+  }
+  .locationTabContainer i {
+    color: #fff;
+  }
+}

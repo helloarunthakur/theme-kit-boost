@@ -1,0 +1,24 @@
+.card {
+  border: none;
+}
+
+.user-content p {
+  margin-top: 5px;
+  line-height: 160%;
+  font-size: 13px !important;
+}
+.card .user-image {
+  margin-bottom: 12px;
+}
+.card .user-image img {
+  width: 44px;
+  height: 44px;
+}
+
+.no-user-image img {
+  object-fit: contain;
+  filter: grayscale(1);
+  opacity: 0.5;
+  border: 1px solid #888;
+  background-color: #eeedee;
+}

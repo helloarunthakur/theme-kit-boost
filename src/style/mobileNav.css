@@ -1,0 +1,68 @@
+.tab-label {
+  text-transform: capitalize;
+}
+.ul-sub-list > a > li {
+  padding-left: 32px;
+}
+.menu-navigations > ul > li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.contact-logo {
+  background: var(--primary-color);
+  padding: 8px;
+  height: 30px;
+  border-radius: 20px;
+  fill: white;
+  width: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+.nav-menu-contact-details {
+  padding: 16px;
+  background: #c2c2c238;
+  border-radius: 8px;
+  margin-bottom: 40px;
+}
+.menuIcon {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.active-tab .tab-label {
+  color: var(--primary-color);
+  font-weight: bold;
+}
+.active-tab .tab-icon i {
+  color: var(--primary-color);
+}
+
+.nav-menu-location-container-sm {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  font-size: 14px;
+  gap: 6px;
+}
+
+.nav-menu-cart-contact-container-sm {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+.modal-content {
+  border-radius: var(--bs-border-radius) !important;
+}
+
+#emailAddress {
+  border-radius: var(--bs-border-radius) !important;
+}
+
+#phoneNumber {
+  border-radius: var(--bs-border-radius) !important;
+}

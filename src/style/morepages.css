@@ -1,0 +1,57 @@
+.page-card1 {
+  width: auto;
+  border: 1px solid #ebedf2;
+  text-align: center;
+  cursor: pointer;
+  height: 80%;
+}
+.page-card1 a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+.page-card {
+  background: #fff;
+  border-radius: 2px;
+  margin: 10px 0;
+}
+.brochure-card-text,
+.video-card {
+  padding: 15px 15px;
+}
+.brochure-card-text {
+  width: 100%;
+}
+.brochure-card-text a {
+  display: flex;
+  align-items: center;
+  text-align: left;
+}
+.brochure-card-text h5 {
+  color: #595959;
+  font-weight: 600;
+  text-overflow: ellipsis;
+  margin: 0;
+  text-transform: uppercase;
+  font-size: 14px;
+  text-align: left;
+}
+.padding-brochure {
+  padding: 60px 0;
+}
+.brochure-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.page-card1:hover .brochure-flex i {
+  color: var(--primary-color);
+}
+.page-card1:hover {
+  border: 1px solid var(--primary-color);
+}
+.page-card1:hover .brochure-card-text h5 {
+  color: var(--primary-color);
+}

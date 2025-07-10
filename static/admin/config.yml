@@ -1,0 +1,40 @@
+local_backend: true
+backend:
+  name: git-gateway
+  branch: master
+
+media_folder: "static/uploads"
+public_folder: "/uploads"
+
+collections:
+  - name: "products"
+    label: "Products"
+    folder: "src/content/products"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    fields:
+      - label: "Title"
+        name: "title"
+        widget: "string"
+      - label: "Description"
+        name: "description"
+        widget: "text"
+      - label: "Poster"
+        name: "poster"
+        widget: "image"
+        required: false
+        hint: "Main product poster image"
+      - label: "Image Gallery"
+        name: "images"
+        widget: "list"
+        required: false
+        field:
+          label: "Image"
+          name: "image"
+          widget: "image"
+      - label: "Body"
+        name: "body"
+        widget: "markdown"
+        required: false
