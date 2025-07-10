@@ -14,7 +14,7 @@ function createProductMarkdown(payload) {
   } = payload
 
   const slug = title.toLowerCase().replace(/\s+/g, "-")
-  const dirPath = path.join(__dirname, "../../content/products")
+  const dirPath = path.join(__dirname, "src/content/products")
   const filePath = path.join(dirPath, `${slug}.md`)
 
   if (!fs.existsSync(dirPath)) {
@@ -51,8 +51,12 @@ function commitAndPushToGitHub(title) {
   execSync(
     `git remote set-url origin https://${process.env.GITHUB_USER}:${process.env.GITHUB_TOKEN}@github.com/helloarunthakur/theme-kit-boost.git`
   )
-
+try {
   execSync("git push origin HEAD:main")
+  console.log(`✅ Git push successful : ${title}`)
+} catch (error) {
+  console.error("🚨 Git push failed:", error)
+}
 }
 
 module.exports = { createProductMarkdown, commitAndPushToGitHub }
