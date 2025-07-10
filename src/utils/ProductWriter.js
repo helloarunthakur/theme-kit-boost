@@ -49,10 +49,10 @@ function commitAndPushToGitHub(title) {
   )
 
   execSync(
-    `git remote set-url origin https://${process.env.GITHUB_USER}:${process.env.GITHUB_TOKEN}@github.com/helloarunthakur/theme-kit-3.0.git`
+    `git remote set-url origin https://${process.env.GITHUB_USER}:${process.env.GITHUB_TOKEN}@github.com/helloarunthakur/theme-kit-boost.git`
   )
 
-  execSync("git push origin HEAD:master")
+  execSync("git push origin HEAD:main")
 }
 
 module.exports = { createProductMarkdown, commitAndPushToGitHub }
