@@ -13,20 +13,22 @@ import FloatingAbout from "../components/common/FloatingAbout"
 import About from "../components/common/About"
 import VideoBanner from "../components/common/VideoBanner"
 
-const IndexPage = () => (
-  <Layout>
-    <VideoBanner />
-    {/* <FloatingAbout /> */}
-    <About />
-    <Services />
-    <Cta />
-    <BrandCarousel />
-    <ProjectSection />
-    <Stats />
-    <OurTeam />
-    <Updates />
-  </Layout>
-)
+const IndexPage = () => {
+  return (
+    <Layout>
+      <VideoBanner />
+      {/* <FloatingAbout /> */}
+      <About />
+      <Services />
+      <Cta />
+      <BrandCarousel />
+      <ProjectSection />
+      <Stats />
+      <OurTeam />
+      <Updates />
+    </Layout>
+  )
+}
 
 /**
  * Head export to define metadata for the page

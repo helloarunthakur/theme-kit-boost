@@ -1,6 +1,5 @@
 import React from "react"
 import ProductCard from "./ProductCard"
-import { products } from "../../utils/products"
 import { graphql, Link, useStaticQuery } from "gatsby"
 
 export default function Services() {

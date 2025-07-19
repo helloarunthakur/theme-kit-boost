@@ -6,7 +6,10 @@ import { updates } from "../../utils/updates"
 const Updates = () => {
   const data = useStaticQuery(graphql`
     {
-      allMarkdownRemark(filter: { fileAbsolutePath: { regex: "/updates/" } }) {
+      allMarkdownRemark(
+        filter: { fileAbsolutePath: { regex: "/updates/" } }
+        limit: 3
+      ) {
         nodes {
           frontmatter {
             title
@@ -14,6 +17,9 @@ const Updates = () => {
             createdOn
           }
           id
+          fields {
+            slug
+          }
         }
       }
     }
@@ -41,6 +47,7 @@ const Updates = () => {
                 date={data.frontmatter.createdOn}
                 title={data.frontmatter.title}
                 image={data.frontmatter.imageURL}
+                slug={data.fields.slug}
               />
             </div>
           ))}

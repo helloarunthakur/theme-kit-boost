@@ -1,11 +1,16 @@
 import React from "react"
 import "../../style/updates-card.css"
 import { Link } from "gatsby"
-const UpdatesCard = ({ date = "no date", title = "no title", image }) => {
+const UpdatesCard = ({
+  date = "no date",
+  title = "no title",
+  image,
+  slug = "/latest-updates",
+}) => {
   let noImage =
     "https://fplogoimages.withfloats.com/tile/68072c36156ae0beb703685b.png"
   return (
-    <Link to="/latest-updates">
+    <Link to={slug}>
       <div
         class="single-service-card single-service-card_2 update_theme_card wow fadeInUp2"
         data-wow-delay="0.2s"

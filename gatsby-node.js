@@ -32,15 +32,83 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   }
 }
 
+// exports.createPages = async ({ graphql, actions }) => {
+//   const { createPage } = actions
+
+//   const result = await graphql(`
+//     {
+//       allMarkdownRemark(filter: { fileAbsolutePath: { regex: "/products/" } }) {
+//         nodes {
+//           fields {
+//             slug
+//           }
+//         }
+//       }
+//     }
+//   `)
+
+//   result.data.allMarkdownRemark.nodes.forEach(node => {
+//     createPage({
+//       path: node.fields.slug,
+//       component: path.resolve(`./src/templates/ProductTemplate.js`),
+//       context: {
+//         slug: node.fields.slug,
+//       },
+//     })
+//   })
+// }
+
+exports.onCreateNode = ({ node, actions, getNode }) => {
+  const { createNodeField } = actions
+
+  if (node.internal.type === "MarkdownRemark") {
+    const fileNode = getNode(node.parent)
+    const relativePath = fileNode.relativePath
+
+    if (relativePath.includes("products/")) {
+      const slug = createFilePath({ node, getNode, basePath: "products" })
+
+      createNodeField({
+        node,
+        name: "slug",
+        value: `/products${slug}`,
+      })
+
+      createNodeField({
+        node,
+        name: "type",
+        value: "product",
+      })
+    }
+
+    if (relativePath.includes("updates/")) {
+      const slug = createFilePath({ node, getNode, basePath: "updates" })
+
+      createNodeField({
+        node,
+        name: "slug",
+        value: `/latest-updates${slug}`,
+      })
+
+      createNodeField({
+        node,
+        name: "type",
+        value: "update",
+      })
+    }
+  }
+}
+
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
   const result = await graphql(`
     {
-      allMarkdownRemark(filter: { fileAbsolutePath: { regex: "/products/" } }) {
+      allMarkdownRemark {
         nodes {
           fields {
             slug
+            type
           }
         }
       }
@@ -48,12 +116,24 @@ exports.createPages = async ({ graphql, actions }) => {
   `)
 
   result.data.allMarkdownRemark.nodes.forEach(node => {
-    createPage({
-      path: node.fields.slug,
-      component: path.resolve(`./src/templates/ProductTemplate.js`),
-      context: {
-        slug: node.fields.slug,
-      },
-    })
+    if (node?.fields?.type === "product") {
+      createPage({
+        path: node.fields.slug,
+        component: path.resolve(`./src/templates/ProductTemplate.js`),
+        context: {
+          slug: node.fields.slug,
+        },
+      })
+    }
+
+    if (node?.fields?.type === "update") {
+      createPage({
+        path: node.fields.slug,
+        component: path.resolve(`./src/templates/UpdatesTemplate.js`),
+        context: {
+          slug: node.fields.slug,
+        },
+      })
+    }
   })
 }

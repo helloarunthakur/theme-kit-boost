@@ -31,6 +31,15 @@ const Layout = ({ children }) => {
   //   new WOW.WOW({ live: false }).init()
   // }, [WOW])
 
+  React.useEffect(() => {
+    const hash = window.location.hash.substring(1)
+    const params = new URLSearchParams(hash)
+    const token = params.get("access_token")
+    if (token) {
+      window.location.replace(`/admin/#access_token=${token}`)
+    }
+  }, [])
+
   return (
     <>
       <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
