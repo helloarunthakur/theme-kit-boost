@@ -16,21 +16,77 @@ collections:
     format: "yaml-frontmatter"
     fields:
       - { label: "Title", name: "title", widget: "string", required: true }
-      - { label: "Description", name: "description", widget: "text", required: true }
-      - { label: "Image URL", name: "imageURL", widget: "string", required: true }
+      - {
+          label: "Description",
+          name: "description",
+          widget: "text",
+          required: true,
+        }
+      - {
+          label: "Image URL",
+          name: "imageURL",
+          widget: "string",
+          required: true,
+        }
       - {
           label: "Images",
           name: "images",
           widget: "list",
           field: { label: "Image", name: "image", widget: "string" },
-          required: false
+          required: false,
         }
-      - { label: "Specifications", name: "specifications", widget: "text", required: true }
+      - {
+          label: "Specifications",
+          name: "specifications",
+          widget: "text",
+          required: true,
+        }
       - {
           label: "Category",
           name: "category",
           widget: "select",
           options: ["Category 1", "Category 2", "Category 3"],
-          required: true
+          required: true,
         }
-      - { label: "Draft", name: "draft", widget: "boolean", default: false, required: false }
+      - {
+          label: "Draft",
+          name: "draft",
+          widget: "boolean",
+          default: false,
+          required: false,
+        }
+
+  - name: "updates"
+    label: "Latest Updates"
+    folder: "src/content/updates"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    format: "yaml-frontmatter"
+    fields:
+      - { label: "Title", name: "title", widget: "string", required: true }
+      - {
+          label: "Description",
+          name: "description",
+          widget: "text",
+          required: true,
+        }
+      - {
+          label: "Image URL",
+          name: "imageURL",
+          widget: "string",
+          required: true,
+        }
+      - {
+          label: "Content",
+          name: "content",
+          widget: "markdown",
+          required: true,
+        }
+      - {
+          label: "Draft",
+          name: "draft",
+          widget: "boolean",
+          default: false,
+          required: false,
+        }
