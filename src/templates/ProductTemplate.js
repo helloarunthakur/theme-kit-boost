@@ -4,14 +4,23 @@ import Breadcrumb from "../components/common/Breadcrumb"
 import { products } from "../utils/products"
 import ProductCard from "../components/common/ProductCard"
 import { graphql } from "gatsby"
+import SEO from "../components/seo"
+import { slugify } from "../utils"
 
 export default function ProductTemplate({ data }) {
   const product = data.markdownRemark
   const productPoster = product.frontmatter.imageURL
     ? product.frontmatter.imageURL
     : "https://productimages.withfloats.com/actual/6807322a3c3dc6d740228e43.png"
+  const slug = slugify(product.frontmatter.title)
   return (
     <Layout>
+      <SEO
+        title={product.frontmatter.title}
+        description={product.frontmatter.description}
+        image={productPoster}
+        url={`https://theme-kit.netlify.app/products/${slug}`}
+      />
       <Breadcrumb frompage="Home" topage="Products" />
       <section className="service-details-wrapper section-padding">
         <div className="container">

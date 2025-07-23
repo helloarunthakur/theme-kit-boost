@@ -12,10 +12,17 @@ import Updates from "../components/common/Updates"
 import FloatingAbout from "../components/common/FloatingAbout"
 import About from "../components/common/About"
 import VideoBanner from "../components/common/VideoBanner"
+import SEO from "../components/seo"
 
 const IndexPage = () => {
   return (
     <Layout>
+      <SEO
+        title="Home"
+        description="Welcome to our homepage! Discover our services, team, and latest updates."
+        image="https://logosandtypes.com/wp-content/uploads/2020/11/Gatsby.png"
+        url="https://theme-kit.netlify.app/"
+      />
       <VideoBanner />
       {/* <FloatingAbout /> */}
       <About />

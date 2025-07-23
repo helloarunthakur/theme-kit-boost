@@ -3,6 +3,8 @@ import Layout from "../components/layout"
 import Breadcrumb from "../components/common/Breadcrumb"
 import UpdatesCard from "../components/common/updatesCard"
 import { graphql } from "gatsby"
+import { slugify } from "../utils"
+import SEO from "../components/seo"
 
 export default function UpdatesTemplate({ data }) {
   const updates = []
@@ -10,8 +12,15 @@ export default function UpdatesTemplate({ data }) {
   const imageURL = updateData.imageURL
     ? updateData.imageURL
     : "https://bizimages.withfloats.com/actual/686f4dd9235401ec14be3563.jpg"
+  const slug = slugify(updateData.title)
   return (
     <Layout>
+      <SEO
+        title={updateData.title}
+        description={updateData.description}
+        image={imageURL}
+        url={`https://theme-kit.netlify.app/latest-update/${slug}`}
+      />
       <Breadcrumb frompage="Home" topage="Latest Updates" />
       <section className="blog-wrapper news-wrapper section-padding">
         <div className="container">
