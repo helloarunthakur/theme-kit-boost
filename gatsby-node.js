@@ -4,6 +4,7 @@ const {
   createProductMarkdown,
   commitAndPushToGitHub,
 } = require("./src/utils/ProductWriter")
+const { default: slugify } = require("slugify")
 
 exports.onPreBootstrap = () => {
   const raw = process.env.INCOMING_HOOK_BODY
