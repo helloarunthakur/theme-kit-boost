@@ -18,19 +18,19 @@ exports.onPreBootstrap = () => {
   }
 }
 
-exports.onCreateNode = ({ node, actions, getNode }) => {
-  const { createNodeField } = actions
+// exports.onCreateNode = ({ node, actions, getNode }) => {
+//   const { createNodeField } = actions
 
-  if (node.internal.type === "MarkdownRemark") {
-    const slug = createFilePath({ node, getNode, basePath: "products" })
+//   if (node.internal.type === "MarkdownRemark") {
+//     const slug = createFilePath({ node, getNode, basePath: "products" })
 
-    createNodeField({
-      node,
-      name: "slug",
-      value: `/products${slug}`, // Example: /products/test-product/
-    })
-  }
-}
+//     createNodeField({
+//       node,
+//       name: "slug",
+//       value: `/products${slug}`, // Example: /products/test-product/
+//     })
+//   }
+// }
 
 // exports.createPages = async ({ graphql, actions }) => {
 //   const { createPage } = actions
@@ -67,11 +67,14 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 
     if (relativePath.includes("products/")) {
       const slug = createFilePath({ node, getNode, basePath: "products" })
-
+      const customSlug = slug
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, "-")
+        .replace(/(^-|-$)/g, "")
       createNodeField({
         node,
         name: "slug",
-        value: `/products${slug}`,
+        value: `/products${customSlug}`,
       })
 
       createNodeField({
@@ -83,11 +86,15 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 
     if (relativePath.includes("updates/")) {
       const slug = createFilePath({ node, getNode, basePath: "updates" })
+      const customSlug = slug
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, "-")
+        .replace(/(^-|-$)/g, "")
 
       createNodeField({
         node,
         name: "slug",
-        value: `/latest-updates${slug}`,
+        value: `/latest-updates${customSlug}`,
       })
 
       createNodeField({
