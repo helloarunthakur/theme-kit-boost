@@ -1,8 +1,13 @@
 import { Link } from "gatsby"
 import React from "react"
+import slugify from "slugify"
 
 export default function ProductCard({ title, image, description, category }) {
-  let productURL = `/products/${title.toLowerCase().replace(/\s+/g, "-")}`
+  const slug = slugify(title, {
+    lower: true,
+    strict: true,
+  })
+  let productURL = `/products/${slug}`
   const noImage =
     "https://images.pexels.com/photos/90946/pexels-photo-90946.jpeg?auto=compress&cs=tinysrgb&w=600"
   return (
