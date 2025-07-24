@@ -75,7 +75,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       createNodeField({
         node,
         name: "slug",
-        value: `/products${customSlug}`,
+        value: `/products/${customSlug}`,
       })
 
       createNodeField({
@@ -95,7 +95,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       createNodeField({
         node,
         name: "slug",
-        value: `/latest-updates${customSlug}`,
+        value: `/latest-updates/${customSlug}`,
       })
 
       createNodeField({
