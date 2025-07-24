@@ -66,11 +66,11 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     const relativePath = fileNode.relativePath
 
     if (relativePath.includes("products/")) {
-      const slug = createFilePath({ node, getNode, basePath: "products" })
-      const customSlug = slug
-        .toLowerCase()
-        .replace(/[^a-z0-9]+/g, "-")
-        .replace(/(^-|-$)/g, "")
+      const title = node.frontmatter.title
+      const customSlug = slugify(title, {
+        lower: true,
+        strict: true,
+      })
       createNodeField({
         node,
         name: "slug",
@@ -85,11 +85,11 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     }
 
     if (relativePath.includes("updates/")) {
-      const slug = createFilePath({ node, getNode, basePath: "updates" })
-      const customSlug = slug
-        .toLowerCase()
-        .replace(/[^a-z0-9]+/g, "-")
-        .replace(/(^-|-$)/g, "")
+      const title = node.frontmatter.title
+      const customSlug = slugify(title, {
+        lower: true,
+        strict: true,
+      })
 
       createNodeField({
         node,

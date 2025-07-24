@@ -1,6 +1,7 @@
 const fs = require("fs")
 const path = require("path")
 const { execSync } = require("child_process")
+const { default: slugify } = require("slugify")
 
 function createProductMarkdown(payload) {
   const {
@@ -13,7 +14,10 @@ function createProductMarkdown(payload) {
     draft = false,
   } = payload
 
-  const slug = title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+  const slug = slugify(title, {
+    lower: true,
+    strict: true,
+  })
   const dirPath = path.join(__dirname, "../content/products")
   const filePath = path.join(dirPath, `${slug}.md`)
 
@@ -51,12 +55,12 @@ function commitAndPushToGitHub(title) {
   execSync(
     `git remote set-url origin https://${process.env.GITHUB_USER}:${process.env.GITHUB_TOKEN}@github.com/helloarunthakur/theme-kit-boost.git`
   )
-try {
-  execSync("git push origin HEAD:main")
-  console.log(`✅ Git push successful : ${title}`)
-} catch (error) {
-  console.error("🚨 Git push failed:", error)
-}
+  try {
+    execSync("git push origin HEAD:main")
+    console.log(`✅ Git push successful : ${title}`)
+  } catch (error) {
+    console.error("🚨 Git push failed:", error)
+  }
 }
 
 module.exports = { createProductMarkdown, commitAndPushToGitHub }
